@@ -5,7 +5,7 @@ export async function GET(req: Request){
     const res = await req.json();
 
     return NextResponse.json({
-        "message": "White glint est le meilleur",
+        "message": "Les loutres sont grandes !",
     }, {
         status: 200
     })
