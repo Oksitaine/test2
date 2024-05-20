@@ -4,7 +4,9 @@ import Image from "next/image";
 export default function Home() {
   async function FetchData() {
     try {
-      const response = await fetch('/api');
+      const response = await fetch('/api', {
+        method: 'POST'
+      });
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
