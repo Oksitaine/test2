@@ -5,7 +5,8 @@ export default function Home() {
   async function FetchData() {
     try {
       const response = await fetch('/api', {
-        method: 'POST'
+        method: 'POST',
+        body: JSON.stringify({ message: 'Hello' })
       });
       if (!response.ok) {
         throw new Error('Network response was not ok');
