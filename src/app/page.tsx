@@ -1,6 +1,20 @@
+"use client"
 import Image from "next/image";
 
 export default function Home() {
+  async function FetchData() {
+    try {
+      const response = await fetch('/api');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      console.error('Fetch error:', error);
+    }
+  }
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -39,10 +53,10 @@ export default function Home() {
         />
       </div>
 
-    
+
   
       <div> 
-        <button className="bg-white rounded-xl py-3 px-5 text-black"> 
+        <button onClick={FetchData} className="bg-white rounded-xl py-3 px-5 text-black"> 
           APPUUYER ICI CI TU EST UN PD
         </button>
       </div>
